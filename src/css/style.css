@@ -356,8 +356,16 @@ blockquote.matches{
   cursor: pointer;
 }
 
-a, .text-link{
-  color: #b4d063ff;
+.lang a, .text-link{
+  color: #ffffff !important;
+}
+
+.lang a:hover, .text-link{
+  color: #eb5f73 !important;
+}
+
+.active  a {
+  color: #eb5f73 !important;
 }
 
 a:hover, a:focus, .text-link:hover, .text-link:focus {
@@ -2032,6 +2040,10 @@ a.btn-line:hover{
 }
 
 @media (max-width: 600px) {
+  .header-filter {
+    width: 100px;
+  }
+
   .nav-filters {
     width: 100px;
     padding-right: 20px;
@@ -2058,6 +2070,9 @@ a.btn-line:hover{
 }
 
 @media (min-width: 600px) {
+  .header-filter {
+    width: 150px;
+  }
   .nav-filters {
     width: 150px;
     padding-right: 20px;
@@ -2077,7 +2092,17 @@ a.btn-line:hover{
   text-transform: lowercase;
 }
 
+@media (min-width: 1400px) {
+  .header-filter {
+    width: 300px !important;
+  }
+}
 
+@media (min-width: 992px) {
+  .header-filter {
+    width: 200px ;
+  }
+}
 /*
   a wrapper of .nav-tabs
 */
@@ -4772,3 +4797,46 @@ ul.article-list .remove {
     width: 100%;
   }
 }
+
+/* BIBE Specialities */
+
+.bg-header {
+  /*
+  background: url("/static/images/backgrounds/FOND.jpg") no-repeat center center !important;
+  background-size: cover !important;
+  */
+  background-color: transparent !important;
+}
+
+.navbar {
+  height:300px !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.navbar-default {
+  border-bottom: 0 !important;
+  background-color: transparent !important;
+}
+
+.nav-filters {
+  background-color: #73bbc9 !important;
+}
+
+.view {
+  margin-top: -5px !important;
+}
+
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body {
+  background: url("/static/images/backgrounds/FOND.jpg") repeat center center !important;
+}
+
+#search-wrapper {
+  margin-right: 50px;
+}
+

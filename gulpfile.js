@@ -83,7 +83,7 @@ gulp.task('scripts', function() {
       './src/js/services.js',
       './src/js/controllers/**/*.js',
       './src/js/directives/*.js',
-      './src/js/templates.js',
+      './src/js/templates-sbk.js',
 
     ])
     .pipe($.concat('scripts.min.js'))
@@ -131,7 +131,7 @@ gulp.task('jshint', function() {
       './src/js/app.js',
       './src/js/filters.js',
       './src/js/services.js',
-      './src/js/templates.js',
+      './src/js/templates-sbk.js',
       './src/js/controllers/*.js',
       './src/js/directives/*.js',
     ])
