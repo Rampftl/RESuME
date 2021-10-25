@@ -27,6 +27,8 @@ angular.module('miller')
           })
           : arr
       }
+      $log.log("HIIIIER" + d);
+      $log.log( RUNTIME.routes.publications[d]);
       return {
         state: 'publications',
         urls: sortBasics(RUNTIME.routes.publications[d])

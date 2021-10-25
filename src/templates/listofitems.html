@@ -30,46 +30,66 @@
             </li>
           </ul>
 
-          <ul class='nav nav-tabs ' ng-repeat='route in availableRoutes'>
+          <ul class='nav ' ng-repeat='route in availableRoutes'>
+              <li class="list-filter" style="margin-bottom: 5px">
+                  <div class="row">
+                      <div class="col-xs-push-2 col-xs-10" style="margin-top: 8px; padding-left: 20px">
+                          <a aria-controls="home"
+                             role="tab"
+                             data-toggle="tab"
+                             translate="state.all.label"
+                             ng-click="selectTag('all')"
+                             ng-class='{"active": isNoFilter()}'
+                             title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
+                             class="force-pointer">
+                          </a>
+                      </div>
+                  </div>
+              </li>
             <li ng-if="url.slug!='all'" ng-repeat='url in route.urls' role="presentation" ng-class='{"active": isTagActive(url.slug), "sdg-logo-container": url.asPicture, "tag-container": !url.asPicture}' class="list-filter">
-              <img ng-src="/static/images/sdg/{{url.slug}}.png"
-                   ng-if="url.asPicture"
-                   ng-click="selectTag(url.slug)"
-                   ng-class='{"active": isSDGActive(url.slug)}'
-                   title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
-                   class="sdg-logo force-pointer" />
+                <div class="row">
+                    <div class="col-xs-2">
+                        <img ng-src="/static/images/categories/{{url.slug}}.svg"
+                             ng-click="selectTag(url.slug)"
+                             ng-class='{"active": isSDGActive(url.slug)}'
+                             title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
+                             class="sdg-logo force-pointer"/>
+                    </div>
+                    <div class="col-xs-10" style="margin-top: 8px; padding-left: 20px">
+                        <!--<a ng-if="!url.asPicture && !url.description" aria-controls="home" role="tab" data-toggle="tab" translate="state.{{route.state}}.{{url.slug}}.label" ng-click='selectTag(url.slug)' class="force-pointer"></a>-->
+
+                        <a aria-controls="home"
+                           role="tab"
+                           data-toggle="tab"
+                           translate="state.{{route.state}}.{{url.slug}}.label"
+                           ng-click='selectTag(url.slug)'
+                           title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
+                           class="force-pointer">
+                        </a>
+                        <ul class='nav nav-tabs' ng-if='hallOfFame.publishings && state == "publications."+url.slug && hallOfFame.publishings.count' style='border: 0px; border-left: 2px solid; padding-left: 10px'>
+                            <li ng-class='{"active":(filters.tags__slug__all | inArray : tag.slug)}' ng-repeat='tag in hallOfFame.publishings.results'>
+                                <a class='tag with-number' ng-click='toggleFilter("tags__slug__all", [tag.slug])'>{{tag.name}}
+                                    <span class='number'>{{tag.stories}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
 
-              <a ng-if="!url.asPicture && !url.description" aria-controls="home" role="tab" data-toggle="tab" translate="state.{{route.state}}.{{url.slug}}.label" ng-click='selectTag(url.slug)' class="force-pointer"></a>
 
-              <a ng-if="!url.asPicture && url.description"
-                 aria-controls="home"
-                 role="tab"
-                 data-toggle="tab"
-                 translate="state.{{route.state}}.{{url.slug}}.label"
-                 ng-click='selectTag(url.slug)'
-                 title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
-                 class="force-pointer">
-              </a>
-              <ul class='nav nav-tabs' ng-if='hallOfFame.publishings && state == "publications."+url.slug && hallOfFame.publishings.count' style='border: 0px; border-left: 2px solid; padding-left: 10px'>
-                <li ng-class='{"active":(filters.tags__slug__all | inArray : tag.slug)}' ng-repeat='tag in hallOfFame.publishings.results'>
-                  <a class='tag with-number' ng-click='toggleFilter("tags__slug__all", [tag.slug])'>{{tag.name}}
-                  <span class='number'>{{tag.stories}}</span>
-                  </a>
-                </li>
-              </ul>
 
             </li>
           </ul>
 
-          <h4 class='section' ng-if='hallOfFame.topAuthors.count' translate='top authors'></h4>
+          <!--<h4 class='section' ng-if='hallOfFame.topAuthors.count' translate='top authors'></h4>
           <ul class='nav nav-tabs' ng-if='hallOfFame.topAuthors.count'>
             <li ng-class='{"active":filters.authors__slug == author.slug}' ng-repeat='author in hallOfFame.topAuthors.results'>
               <a class='author with-number' ng-click='toggleFilter("authors__slug", author.slug)'>{{author.fullname}}
               <span class='number'>{{author.stories}}</span>
               </a>
             </li>
-          </ul>
+          </ul>-->
         </td>
         <td class='bg-header'><div ui-view></div></td>
       </tr>

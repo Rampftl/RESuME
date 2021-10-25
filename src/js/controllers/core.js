@@ -144,18 +144,23 @@ angular.module('miller')
         filterType = 'tags__slug__and'
       }
 
-      if (!(filterType in $scope.filters)) {
+      // if (!(filterType in $scope.filters)) {
+      //   $scope.filters[filterType] = [];
+      // }
         $scope.filters[filterType] = [];
-      }
-
-      if ($scope.filters[filterType].indexOf(tag) !== -1) {
-        $scope.filters[filterType].splice($scope.filters[filterType].indexOf(tag), 1);
-        if ($scope.filters[filterType].length === 0) {
-          delete $scope.filters[filterType]
+        if(tag != "all") {
+            $scope.filters[filterType].push(tag);
         }
-      } else {
-        $scope.filters[filterType].push(tag);
-      }
+
+      // if ($scope.filters[filterType].indexOf(tag) !== -1) {
+      //   $scope.filters[filterType].splice($scope.filters[filterType].indexOf(tag), 1);
+      //   if ($scope.filters[filterType].length === 0) {
+      //     delete $scope.filters[filterType]
+      //   }
+      // } else {
+      //     $scope.filters[filterType] = [];
+      //   $scope.filters[filterType].push(tag);
+      // }
 
       setNewLocation()
     }
@@ -197,6 +202,11 @@ angular.module('miller')
       return !$scope.filters.tags__slug__and || ($scope.filters.tags__slug__and && $scope.filters.tags__slug__and.findIndex(function (e) {
         return e === tag;
       }) !== -1);
+    }
+
+    $scope.isNoFilter = function() {
+        console.log($scope.filters);
+        return $scope.filters["tags__slug__and"] === undefined || $scope.filters["tags__slug__and"].length === 0;
     }
 
     $scope.download = function () {
