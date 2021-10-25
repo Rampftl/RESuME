@@ -33,6 +33,7 @@ h1 {
   font-family: 'Reklame Script Regular';
   margin-top: 5px !important;
   margin-bottom: 5px !important;
+  font-size: 8rem !important;
 }
 
 h1 .icon{
@@ -4957,6 +4958,31 @@ a.active {
   color: #f26951 !important;
 }
 
+.color-lblue {
+  color: #73bbc9 !important;
+}
+
+.color-blue {
+  color: #58acbf !important;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.bg-color-orange {
+  background-color: #f26951 !important;
+}
+
+.bg-color-lblue {
+  background-color: #73bbc9 !important;
+}
+
+.bg-color-blue {
+  background-color: #58acbf !important;
+}
+
+
 #footer, .push {
   height: 0 !important;
 }
@@ -4989,4 +5015,9 @@ a:hover .btn-primary {
 .text-reklame {
   font-family: "Reklame Script Regular", arial, sans-serif;
   font-size: 2rem;
+}
+
+.carre-orange {
+  background: url("/static/images/about/carre-orange.svg") no-repeat;
+  background-size: cover;
 }
