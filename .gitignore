@@ -43,3 +43,6 @@ jspm_packages
 
 # GOOGLE verification file
 google*.html
+
+dist/
+.idea/
