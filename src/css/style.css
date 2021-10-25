@@ -1,14 +1,38 @@
 /* Resume */
+
+@font-face {
+  font-family: 'Reklame Script Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Reklame Script Regular'), url('/static/images/ReklameScript-Regular_DEMO.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Source Sans Pro Regular'), url('/static/iamges/SourceSansPro-Regular.ttf') format('ttf');
+}
+
+body {
+  font-family: "Source Sans Pro Regular",arial,sans-serif !important;
+}
 /*
   p, a etc.
   alternative blue: #0ecdc0
 */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4{
-  text-align: left;
+  /*text-align: left;*/
   /*font-family: arial, sans-serif;*/
   /*font-weight: bold;*/
   font-weight: normal;
   color: #454545;
+}
+
+h1 {
+  font-family: 'Reklame Script Regular';
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
 }
 
 h1 .icon{
@@ -2762,7 +2786,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
   font-size: 13px;
   line-height: 18px;
   font-weight: bold;
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
 }
 
 .metadata .authors{
@@ -2929,7 +2953,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
 
 .doc blockquote{
   font-size: 12px;
-  font-family: arial, serif;
+  font-family: 'Source Sans Pro Regular', arial, serif;
   text-transform: none;
   font-style: italic;
   margin: 10px 50px 10px 20px;
@@ -3048,7 +3072,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
   font-size: 10px;
   line-height: inherit;
 
-  font-family: Lato;
+  font-family: 'Source Sans Pro Regular';
   text-transform: uppercase;
   font-weight: bold;
   line-height: 20px;
@@ -3078,7 +3102,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
   font-size: 10px;
   line-height: 18px;
   padding: 0 6px 0 0;
-  font-family: Lato, sans-serif;
+  font-family: 'Source Sans Pro Regular',Lato, sans-serif;
   text-transform: uppercase;
 }
 
@@ -3159,7 +3183,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
 }
 
 .doc.oembedded .excerpt .type{
-  font-family: arial;
+  font-family: 'Source Sans Pro Regular',arial;
   text-transform: uppercase;
   font-size: 11px;
   font-weight: bold;
@@ -3286,7 +3310,7 @@ div.profile-others .profile-thumb{
 #search-wrapper{
   width: 130px;
   padding-top: 29px;
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
 }
 
 #search-wrapper .input-group {
@@ -3858,7 +3882,7 @@ content: "\e07a";
 
 .table th{
   color: #151515;
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
   text-transform: uppercase;
   font-size: 11px;
   font-weight: bold;
@@ -3897,7 +3921,7 @@ content: "\e07a";
   reviewed
 */
 .review table .status{
-  font-family: arial;
+  font-family: 'Source Sans Pro Regular',arial;
   text-transform: uppercase;
   font-size: 0.8em;
   padding: 0 5px;
@@ -4098,7 +4122,7 @@ content: "\e07a";
 }
 
 .sliding-steps .step.comment .leave label{
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   color: #9c9696;
@@ -4125,7 +4149,7 @@ content: "\e07a";
 }
 
 .comment .username{
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   color: #9c9696;
@@ -4163,7 +4187,7 @@ content: "\e07a";
 }
 
 .popover{
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
   font-size: 12px;
   border-color: #d0d0d0;
   border-radius: 2px;
@@ -4780,7 +4804,7 @@ ul.article-list .remove {
   margin-left: 4px;
   margin-bottom: 8px;
   transition: transform .2s;
-  width: 40px;
+  width: 35px;
 }
 
 .sdg-logo.active {
@@ -4925,12 +4949,12 @@ a:hover {
 }
 
 a.active {
-  color: #FF6B6B !important;
+  color: #f26951 !important;
   font-weight: bold !important;
 }
 
 .color-orange {
-  color: #FF6B6B !important;
+  color: #f26951 !important;
 }
 
 #footer, .push {
@@ -4944,9 +4968,25 @@ a.active {
 }
 
 #footer ul.navbar-nav {
-  font-family: arial, sans-serif;
-  background-color: #FF6B6B !important;
+  font-family: 'Source Sans Pro Regular',arial, sans-serif;
+  background-color: #f26951 !important;
   border-top: 0 !important;
   width: 100%;
   margin: 0 !important;
+}
+
+.btn-primary {
+  background-color: #73bbc9 !important;
+  border: 0 !important;
+  border-radius: 8px;
+}
+
+a:hover .btn-primary {
+  color: white !important;
+  font-weight: normal !important;
+}
+
+.text-reklame {
+  font-family: "Reklame Script Regular", arial, sans-serif;
+  font-size: 2rem;
 }

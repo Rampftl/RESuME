@@ -31,7 +31,8 @@ angular.module('miller')
       $log.log( RUNTIME.routes.publications[d]);
       return {
         state: 'publications',
-        urls: sortBasics(RUNTIME.routes.publications[d])
+        //urls: sortBasics(RUNTIME.routes.publications[d])
+          urls: RUNTIME.routes.publications[d]
       }
     });
 

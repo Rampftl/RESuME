@@ -4,85 +4,86 @@
     <table>
       <tr>
         <td class='nav-filters'>
-          <ul class='nav nav-tabs nav-top'>
+            <div style="background: url('/static/images/backgrounds/home-vague.svg') no-repeat 0 300px">
+            <ul class='nav nav-tabs nav-top'>
                 <li role="presentation" ui-sref-active="active" >
-                  <a ui-sref='{{mainStatename}}' aria-controls="home" role="tab" data-toggle="tab" translate="state.{{mainStatename}}.label"></a>
+                    <a ui-sref='{{mainStatename}}' aria-controls="home" role="tab" data-toggle="tab" translate="state.{{mainStatename}}.label"></a>
                 </li>
                 <li ng-if='tag' ui-sref-active="active">
-                  <a class='quick' ui-sref='{{rootStatename}}.tags({slug: tag.slug})' aria-controls="home" role="tab" data-toggle="tab">
-                    <span>{{tag.category}}</span>/<b rewording value='tag.data.name' follow='tag' default='{{tag.name}}'></b>
-                  </a>
+                    <a class='quick' ui-sref='{{rootStatename}}.tags({slug: tag.slug})' aria-controls="home" role="tab" data-toggle="tab">
+                        <span>{{tag.category}}</span>/<b rewording value='tag.data.name' follow='tag' default='{{tag.name}}'></b>
+                    </a>
                 </li>
                 <li ng-if='mainRoutes' ng-repeat='url in mainRoutes' role="presentation" ui-sref-active="active">
-                  <a ng-if='url.name' ui-sref='{{rootStatename}}.{{url.slug}}' aria-controls="home" role="tab" data-toggle="tab">{{url.name}}</a>
-                  <a ng-if='!url.name' ui-sref='{{rootStatename}}.{{url.slug}}' aria-controls="home" role="tab" data-toggle="tab" translate="state.{{rootStatename}}.{{url.slug}}.label"></a>
+                    <a ng-if='url.name' ui-sref='{{rootStatename}}.{{url.slug}}' aria-controls="home" role="tab" data-toggle="tab">{{url.name}}</a>
+                    <a ng-if='!url.name' ui-sref='{{rootStatename}}.{{url.slug}}' aria-controls="home" role="tab" data-toggle="tab" translate="state.{{rootStatename}}.{{url.slug}}.label"></a>
                 </li>
-              </ul>
+            </ul>
 
-          <ul class='nav nav-tabs' ng-if='availabileOrderby'>
-            <li class="dropdown">
-              <a bs-dropdown placement='bottom-left' aria-haspopup="true" aria-expanded="false" class="filter-dropdown" style='position:relative; padding-right: 30px'>
-                <span class='username'><span class='ellipsis' translate='order.by.{{ordering}}'></span><span style='position:absolute; right:5px; top:0' class='icon icon-arrow-down-circle'></span></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li ng-repeat='orderby in availabileOrderby' ng-class='{"active":params.orderby==orderby.value}'><a ng-click='changeOrderby(orderby.value)' translate='order.by.{{orderby.label}}'></a></li>
-              </ul>
-            </li>
-          </ul>
+            <ul class='nav nav-tabs' ng-if='availabileOrderby'>
+                <li class="dropdown">
+                    <a bs-dropdown placement='bottom-left' aria-haspopup="true" aria-expanded="false" class="filter-dropdown" style='position:relative; padding-right: 30px'>
+                        <span class='username'><span class='ellipsis' translate='order.by.{{ordering}}'></span><span style='position:absolute; right:5px; top:0' class='icon icon-arrow-down-circle'></span></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat='orderby in availabileOrderby' ng-class='{"active":params.orderby==orderby.value}'><a ng-click='changeOrderby(orderby.value)' translate='order.by.{{orderby.label}}'></a></li>
+                    </ul>
+                </li>
+            </ul>
 
-          <ul class='nav ' ng-repeat='route in availableRoutes'>
-              <li class="list-filter" style="margin-bottom: 5px">
-                  <div class="row">
-                      <div class="col-xs-push-2 col-xs-10" style="margin-top: 8px; padding-left: 20px">
-                          <a aria-controls="home"
-                             role="tab"
-                             data-toggle="tab"
-                             translate="state.all.label"
-                             ng-click="selectTag('all')"
-                             ng-class='{"active": isNoFilter()}'
-                             title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
-                             class="force-pointer">
-                          </a>
-                      </div>
-                  </div>
-              </li>
-            <li ng-if="url.slug!='all'" ng-repeat='url in route.urls' role="presentation" ng-class='{"active": isTagActive(url.slug), "sdg-logo-container": url.asPicture, "tag-container": !url.asPicture}' class="list-filter">
-                <div class="row">
-                    <div class="col-xs-2">
-                        <img ng-src="/static/images/categories/{{url.slug}}.svg"
-                             ng-click="selectTag(url.slug)"
-                             ng-class='{"active": isSDGActive(url.slug)}'
-                             title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
-                             class="sdg-logo force-pointer"/>
+            <ul class='nav ' ng-repeat='route in availableRoutes'>
+                <li class="list-filter" style="margin-bottom: 5px">
+                    <div class="row">
+                        <div class="col-xs-push-2 col-xs-10" style="margin-top: 8px; padding-left: 20px">
+                            <a aria-controls="home"
+                               role="tab"
+                               data-toggle="tab"
+                               translate="state.all.label"
+                               ng-click="selectTag('all')"
+                               ng-class='{"active": isNoFilter()}'
+                               title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
+                               class="force-pointer">
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-xs-10" style="margin-top: 8px; padding-left: 20px">
-                        <!--<a ng-if="!url.asPicture && !url.description" aria-controls="home" role="tab" data-toggle="tab" translate="state.{{route.state}}.{{url.slug}}.label" ng-click='selectTag(url.slug)' class="force-pointer"></a>-->
+                </li>
+                <li ng-if="url.slug!='all'" ng-repeat='url in route.urls' role="presentation" ng-class='{"active": isTagActive(url.slug), "sdg-logo-container": url.asPicture, "tag-container": !url.asPicture}' class="list-filter">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <img ng-src="/static/images/categories/{{url.slug}}.svg"
+                                 ng-click="selectTag(url.slug)"
+                                 ng-class='{"active": isSDGActive(url.slug)}'
+                                 title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
+                                 class="sdg-logo force-pointer"/>
+                        </div>
+                        <div class="col-xs-10" style="margin-top: 8px; padding-left: 20px">
+                            <!--<a ng-if="!url.asPicture && !url.description" aria-controls="home" role="tab" data-toggle="tab" translate="state.{{route.state}}.{{url.slug}}.label" ng-click='selectTag(url.slug)' class="force-pointer"></a>-->
 
-                        <a aria-controls="home"
-                           role="tab"
-                           data-toggle="tab"
-                           translate="state.{{route.state}}.{{url.slug}}.label"
-                           ng-click='selectTag(url.slug)'
-                           title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
-                           class="force-pointer">
-                        </a>
-                        <ul class='nav nav-tabs' ng-if='hallOfFame.publishings && state == "publications."+url.slug && hallOfFame.publishings.count' style='border: 0px; border-left: 2px solid; padding-left: 10px'>
-                            <li ng-class='{"active":(filters.tags__slug__all | inArray : tag.slug)}' ng-repeat='tag in hallOfFame.publishings.results'>
-                                <a class='tag with-number' ng-click='toggleFilter("tags__slug__all", [tag.slug])'>{{tag.name}}
-                                    <span class='number'>{{tag.stories}}</span>
-                                </a>
-                            </li>
-                        </ul>
+                            <a aria-controls="home"
+                               role="tab"
+                               data-toggle="tab"
+                               translate="state.{{route.state}}.{{url.slug}}.label"
+                               ng-click='selectTag(url.slug)'
+                               title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
+                               class="force-pointer">
+                            </a>
+                            <ul class='nav nav-tabs' ng-if='hallOfFame.publishings && state == "publications."+url.slug && hallOfFame.publishings.count' style='border: 0px; border-left: 2px solid; padding-left: 10px'>
+                                <li ng-class='{"active":(filters.tags__slug__all | inArray : tag.slug)}' ng-repeat='tag in hallOfFame.publishings.results'>
+                                    <a class='tag with-number' ng-click='toggleFilter("tags__slug__all", [tag.slug])'>{{tag.name}}
+                                        <span class='number'>{{tag.stories}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
 
 
 
-            </li>
-          </ul>
+                </li>
+            </ul>
 
-          <!--<h4 class='section' ng-if='hallOfFame.topAuthors.count' translate='top authors'></h4>
+            <!--<h4 class='section' ng-if='hallOfFame.topAuthors.count' translate='top authors'></h4>
           <ul class='nav nav-tabs' ng-if='hallOfFame.topAuthors.count'>
             <li ng-class='{"active":filters.authors__slug == author.slug}' ng-repeat='author in hallOfFame.topAuthors.results'>
               <a class='author with-number' ng-click='toggleFilter("authors__slug", author.slug)'>{{author.fullname}}
@@ -90,6 +91,9 @@
               </a>
             </li>
           </ul>-->
+                <br/><br/><br/><br/>
+            </div>
+
         </td>
         <td class='bg-header'><div ui-view></div></td>
       </tr>
