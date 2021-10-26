@@ -46,3 +46,4 @@ google*.html
 
 dist/
 .idea/
+src/test/
