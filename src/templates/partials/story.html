@@ -1,17 +1,42 @@
 <div ng-if='!story._isCollection' class="story item">
   <div class="col-md-4 story-card">
     <div class="story-card-inner" ng-init="showCoverCheckbox = false" ng-mouseenter="showCoverCheckbox = true" ng-mouseleave="showCoverCheckbox = false">
-      <div ng-repeat='document in story.covers' class='fluid-container relative' ng-if='story.covers.length'>
+        <div class="card-content bg-color-orange" ng-class="{hasmetadata: story.covers.length, hasnometadata: !story.covers.length}" style="border-radius: 10px; height: 250px">
+            <div style="height:180px"></div>
+            <h3 class="title" style="overflow: hidden; font-weight: bold; font-size: 1.3rem; padding-left: 15px;">
+                <a ui-sref="story({postId: story.slug})"><span rewording value='story.data.title' default='{{story.title}}'></span> {{story.status != 'public'? '['+story.status+']': ''}}</a>
+            </h3>
+            <div style="display: inline">
+                <!--<span ng-if='story.data.issue'>&mdash; {{story.data.issue}}</span>-->
+                <span class="date color-white" style="font-size: smaller">{{story.date|date:'dd.MM.yyyy'}}</span>
+                <img src="/static/images/categories/food.svg" style="float: right; width: 25px"/>
+            </div>
+            <!--<div class="author-date">
+                <div class='authors' ng-if="story.authors.length" style="display: inline">
+                  <span ng-repeat='author in story.authors' ng-include='"templates/partials/author.html"|prefixTemplate'></span>
+                </div>
+
+                <div style="display: inline">
+                    <span ng-if='story.data.issue'>&mdash; {{story.data.issue}}</span>
+                    <span class="date color-white">{{story.date|date:'dd.MM.yyyy'}}</span>
+                </div>
+            </div>-->
+
+            <div style="display: inline;" class="admin-modify">
+                <a ng-if='user.is_staff' target='_blank' ng-href='/admin/miller/story/{{story.id}}/change/'>modify (admin)</a>
+            </div>
+        </div>
+      <div ng-repeat='document in story.covers' class='fluid-container relative' ng-if='story.covers.length' style="z-index: 200; top:-260px; left:10px">
         <a ui-sref="story({postId: story.slug})">
-          <div class='image-wrapper cover' lazy-img='{{document|coverage}}'></div>
+          <div class='image-wrapper cover' lazy-img='{{document|coverage}}' style="border-radius: 10px"></div>
         </a>
         <div class="cover-checkbox" ng-show="showCoverCheckbox || cart.isItemSelected(story.id)">
           <input type="checkbox" ng-click="boxChecked(story)" ng-checked="cart.isItemSelected(story.id)"/>
         </div>
-        <div class='embedded-metadata' ng-include='"templates/partials/document.metadata.embedded.html"|prefixTemplate'></div>
+        <!--<div class='embedded-metadata' ng-include='"templates/partials/document.metadata.embedded.html"|prefixTemplate'></div>-->
       </div>
 
-      <div ng-if='!story.covers.length' class='fluid-container relative'>
+      <div ng-if='!story.covers.length' class='fluid-container relative' style="z-index: 200">
         <a ui-sref="story({postId: story.slug})">
           <div class="story-missing-cover"></div>
         </a>
@@ -20,26 +45,7 @@
         </div>
       </div>
 
-      <div class="card-content" ng-class="{hasmetadata: story.covers.length, hasnometadata: !story.covers.length}">
-        <h3 class="title" style="overflow: hidden;">
-          <a ui-sref="story({postId: story.slug})"><span rewording value='story.data.title' default='{{story.title}}'></span> {{story.status != 'public'? '['+story.status+']': ''}}</a>
-        </h3>
 
-        <div class="author-date">
-          <div class='authors' ng-if="story.authors.length" style="display: inline">
-            <span ng-repeat='author in story.authors' ng-include='"templates/partials/author.html"|prefixTemplate'></span>
-          </div>
-
-          <div style="display: inline">
-            <span ng-if='story.data.issue'>&mdash; {{story.data.issue}}</span>
-            <span class="date">{{story.date|date:"yyyy'.'MM'.'dd"}}</span>
-          </div>
-        </div>
-
-        <div style="display: inline;" class="admin-modify">
-          <a ng-if='user.is_staff' target='_blank' ng-href='/admin/miller/story/{{story.id}}/change/'>modify (admin)</a>
-        </div>
-      </div>
 
     </div>
   </div>

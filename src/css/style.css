@@ -4,7 +4,7 @@
   font-family: 'Reklame Script Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('Reklame Script Regular'), url('/static/images/ReklameScript-Regular_DEMO.woff') format('woff');
+  src: local('Reklame Script Regular'), url('/static/images/Reklame-Script-Regular.otf') format('opentype');
 }
 
 @font-face {
@@ -4868,6 +4868,7 @@ ul.article-list .remove {
 
 body {
   background: url("/static/images/backgrounds/FOND.jpg") repeat center center !important;
+  background-size: cover !important;
 }
 
 #search-wrapper {
@@ -5037,4 +5038,54 @@ a:hover .btn-primary {
 
 .contents p {
   color: white;
+}
+
+a.footer {
+  color:white !important;
+}
+
+a:hover.footer {
+  color: black !important;
+}
+
+.menu-wrapper {
+  background-color: #f26951 !important;
+  display: none;
+}
+
+#navbar .menu-wrapper {
+  position: absolute;
+  bottom: 0;
+  top: 110px !important;
+  background: white;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  /* border-top: 2px solid #d9d9d9; */
+  /* display: none; */
+}
+
+.elastic-textarea {
+  background-color: #73bbc9 !important;
+}
+
+div.tags {
+  background-color: #73bbc9 !important;
+}
+
+.story.item .date, .story .date.publication-date, .coverstory .date.publication-date {
+  display: inline-block;
+  border-left: 0 !important;
+  padding-left: 8px;
+  margin-left: 5px;
+}
+
+.story-card-inner {
+  background-color: transparent !important;
+  height: 98%;
+  width: 100%;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+  border-radius: 0 0 4px 4px;
+  margin-bottom: 12px;
+  /* background-color: rgb(231, 231, 231); */
 }

@@ -3,7 +3,12 @@
 <div ng-if="showDescription && topDescription" class="row" style="padding: 10px 20px 10px 60px">
   <div markdownit='topDescription' watchlanguage='true' language='language'></div>
 </div>
-
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1 class="color-orange" translate="header.projects.label">PROJECTS</h1>
+        <span class="hidden-xs">XS</span><span class="hidden-sm">SM</span><span class="hidden-md">MD</span><span class="hidden-lg">LG</span>
+    </div>
+</div>
 <div class="row fluid-container" style="margin-left: 2%">
   <div ng-if='itemTemplate == "author.item"' ng-repeat='author in items' ng-include='"templates/partials/author.item.html"|prefixTemplate'></div>
   <div ng-if='itemTemplate == "story"' ng-repeat='story in items' ng-include='"templates/partials/story.html"|prefixTemplate'></div>
