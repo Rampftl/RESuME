@@ -64,7 +64,7 @@
                                translate="state.{{route.state}}.{{url.slug}}.label"
                                ng-click='selectTag(url.slug)'
                                title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
-                               class="force-pointer">
+                               class="force-pointer" style="font-size: 1rem">
                             </a>
                             <ul class='nav nav-tabs' ng-if='hallOfFame.publishings && state == "publications."+url.slug && hallOfFame.publishings.count' style='border: 0px; border-left: 2px solid; padding-left: 10px'>
                                 <li ng-class='{"active":(filters.tags__slug__all | inArray : tag.slug)}' ng-repeat='tag in hallOfFame.publishings.results'>

@@ -36,6 +36,12 @@ h1 {
   font-size: 8rem !important;
 }
 
+h2 {
+  font-family: 'Reklame Script Regular';
+  color: white !important;
+  font-size: 3rem !important;
+}
+
 h1 .icon{
   font-size: 29px;
 }
@@ -1073,6 +1079,10 @@ ul.errorlist{
   .actions-view {
     margin-bottom: 10px !important;
     margin-top: 10px !important;
+  }
+  .profile .contents ol, ul {
+    margin-top: 10px;
+    margin-left: 10px;
   }
 }
 
@@ -4982,6 +4992,9 @@ a.active {
   background-color: #58acbf !important;
 }
 
+#footer {
+  height: 80px !important;
+}
 
 #footer, .push {
   height: 0 !important;
@@ -5020,4 +5033,8 @@ a:hover .btn-primary {
 .carre-orange {
   background: url("/static/images/about/carre-orange.svg") no-repeat;
   background-size: cover;
+}
+
+.contents p {
+  color: white;
 }
