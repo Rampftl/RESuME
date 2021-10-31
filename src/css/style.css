@@ -5121,3 +5121,6 @@ span .title {
   padding: 0;
 }
 
+#contents h2 {
+  color: #f26951 !important;
+}
