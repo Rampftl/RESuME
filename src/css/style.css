@@ -5124,3 +5124,7 @@ span .title {
 #contents h2 {
   color: #f26951 !important;
 }
+
+.story-card-inner {
+  height: 250px !important;
+}
