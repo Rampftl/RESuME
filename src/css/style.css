@@ -5089,3 +5089,35 @@ div.tags {
   margin-bottom: 12px;
   /* background-color: rgb(231, 231, 231); */
 }
+
+.doc-image {
+  margin-left: -10px !important;
+  margin-right: -10px !important;
+  margin-top: -25px !important;
+  border-radius: 5px !important;
+}
+
+.rich-oembed-iframe-wrapper {
+  border-radius: 5px !important;
+}
+
+#contents p {
+  margin-bottom: 20px !important;
+  background-color: #f26951 !important;
+  padding: 10px;
+  padding-bottom: 0;
+  border-radius: 5px;
+}
+
+span .title {
+  color: black !important;
+}
+
+.metadata a {
+  color: black !important;
+}
+#contents p span {
+  background-color: transparent !important;
+  padding: 0;
+}
+

@@ -91,7 +91,7 @@
       <div class='row'>
         <div class='col-sm-offset-2 col-sm-8 center'>
             <div class="col-sm-2 left">
-                <a href ui-sref='page({name:"contact"})'><img src="/static/images/buttons/back.svg" style="width: 100px"/></a>
+                <a href ui-sref='page({name:".."})'><img src="/static/images/buttons/back.svg" style="width: 100px"/></a>
             </div>
             <div class="col-sm-8">
                 <h1 rewording value='story.data.title' default='{{story.title}}' class="color-blue"></h1>
@@ -172,7 +172,7 @@
           <div style='position:relative' class="contents">
 
             <!-- contents of the story -->
-            <div class="bg-color-orange" style="padding: 10px" id='contents' markdownit='story.contents' watchlanguage='true' language='language' listener='listener(event, data, callback)' settoc='setToC(ToC)' setdocs='setDocuments(items)'></div>
+            <div class="" style="padding: 10px" id='contents' markdownit='story.contents' watchlanguage='true' language='language' listener='listener(event, data, callback)' settoc='setToC(ToC)' setdocs='setDocuments(items)'></div>
 
             <!-- DOI / reference -->
             <div class='ref' ng-if='story.data.reference'>

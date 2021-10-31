@@ -790,21 +790,21 @@
       </div>
     </div>
     {% endblock %}
-    <aside id='table-of-contents' ng-class='{"active":hasToC && ToC.length>0}'>
+    <!--<aside id='table-of-contents' ng-class='{"active":hasToC && ToC.length>0}'>
       <div id="inner-table-of-contents"><div ng-include='"templates/partials/table-of-contents.html"|prefixTemplate'></div></div>
-    </aside>
+    </aside>-->
 
     <!-- <aside id='table-of-documents' ng-class='hasToC? "":"active"'>
       <div id="inner-table-of-documents"><div ng-include='"templates/partials/table-of-documents.html"|prefixTemplate'></div></div>
     </aside> -->
 
-    <div id='table-of-contents-toggler' ng-class='{"active": state != "writing" && ToC.length > 0}' >
+    <!--<div id='table-of-contents-toggler' ng-class='{"active": state != "writing" && ToC.length > 0}' >
       <div>
-        <!-- <button class='btn-transparent' ng-click='toggleTableOfContents()'><span  class='icon-book-open'></span></button> -->
+        <!-- <button class='btn-transparent' ng-click='toggleTableOfContents()'><span  class='icon-book-open'></span></button>
         <button class='btn-transparent' ng-class='{"active": hasToC && ToC.length > 0}' ng-click='toggleTableOfContents()' bs-tooltip data-placement='right' title='table of contents'><span class='icon-book-open'></span></button>
       </div>
 
-    </div>
+    </div>-->
     {% verbatim %}
     <div id="messenger" ng-class='{"active":message, "error": messageError}' translate="{{message}}"></div>
     {% endverbatim %}

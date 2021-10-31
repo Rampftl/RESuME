@@ -1,46 +1,54 @@
-<div class='doc doc-{{document.type}} {{document.isSelected?"active":""}} orientation-{{document.data.layout.orientation||"landscape"}} caption-align-{{document.data.layout.caption_align||"center"}} size-{{document.data.layout.size||"cover"}}' ng-click='selectDocument(document)'>
-  <div class='switch' ng-if='document.type=="image" || document.type=="rich" || document.type=="video" || document.type=="photo"' rich-oembed fullscreen='fullsize(document.slug)' oembed='document.data' media='document' quality='{{quality}}'></div>
+<div class='doc doc-{{ document.type }} {{ document.isSelected?"active":""}} orientation-
+        {{ document.data.layout.orientation||"landscape"}} caption-align-
+        {{ document.data.layout.caption_align||"center"}} size-{{ document.data.layout.size||"cover"}}'
+     ng-click='selectDocument(document)'>
+    <div class='switch'
+         ng-if='document.type=="image" || document.type=="rich" || document.type=="video" || document.type=="photo"'
+         rich-oembed fullscreen='fullsize(document.slug)' oembed='document.data' media='document'
+         quality='{{ quality }}'></div>
 
-  <div class='switch timeline' ng-if='document.type=="timeline"' stretch='true' embedit='document.data.html'></div>
+    <div class='switch timeline' ng-if='document.type=="timeline"' stretch='true' embedit='document.data.html'></div>
 
-  <div class='switch' ng-if='document.type=="picture"' style='height: 400px; width:100%; background-position: center; background-color: #151515; background-size:contain; background-repeat: no-repeat;' lazy-img='{{document.src}}'></div>
+    <div class='switch' ng-if='document.type=="picture"'
+         style='height: 400px; width:100%; background-position: center; background-color: #151515; background-size:contain; background-repeat: no-repeat;'
+         lazy-img='{{ document.src }}'></div>
 
-  <div ng-if='document.data' ng-include='"templates/partials/document.metadata.html"|prefixTemplate'></div>
+    <!--<div ng-if='document.data' ng-include='"templates/partials/document.metadata.html"|prefixTemplate'></div>-->
 
-      <!-- this element has fixed height. -->
-      <div ng-if='document.type=="video-cover"'>
+    <!-- this element has fixed height. -->
+    <div ng-if='document.type=="video-cover"'>
         <div class='caption reference' markdown='document.data.reference.fr'></div>
-        <div class='copyright'>{{document.copyrights}}</div>
-      </div>
+        <div class='copyright'>{{ document.copyrights }}</div>
+    </div>
 
-      <div ng-if='document.type=="pdf"' lazy-image src='document.snapshot'></div>
-    
-      <blockquote ng-if='document.citation' markdown='document.citation'></blockquote>
-      
-      <div ng-if='!document.data'>
-        <div ng-if='document.title' class='title'>{{document.title}}</div>
-        <div ng-if='document.caption' class='caption'>{{document.caption}}</div>
-        <div ng-if='document.copyrights' class='copyright'>{{document.copyrights}}</div>
-      </div>
+    <div ng-if='document.type=="pdf"' lazy-image src='document.snapshot'></div>
 
-      <div ng-if='document.type=="bibtex"'>
+    <blockquote ng-if='document.citation' markdown='document.citation'></blockquote>
+
+    <div ng-if='!document.data'>
+        <div ng-if='document.title' class='title'>{{ document.title }}</div>
+        <div ng-if='document.caption' class='caption'>{{ document.caption }}</div>
+        <div ng-if='document.copyrights' class='copyright'>{{ document.copyrights }}</div>
+    </div>
+
+    <div ng-if='document.type=="bibtex"'>
         <div class='caption'>
-          <span ng-if='document.data.author'>{{document.data.author|bibtex}},</span>
-          <span ng-if='document.data.editor'>{{document.data.editor|bibtex}}</span>(edited by)</span> 
-          
-          <em>{{document.data.title|bibtex}}</em>
-          <span>{{document.data.publisher|bibtex}}</span>
-          <span ng-if='document.data.year'>, <span>{{document.data.year|bibtex}}</span> 
-        </div>
-      </div>
+            <span ng-if='document.data.author'>{{ document.data.author|bibtex }},</span>
+            <span ng-if='document.data.editor'>{{ document.data.editor|bibtex }}</span>(edited by)</span>
 
-      <div ng-if='document.type!="bibtex" && document.data.title'>
+            <em>{{ document.data.title|bibtex }}</em>
+            <span>{{ document.data.publisher|bibtex }}</span>
+            <span ng-if='document.data.year'>, <span>{{ document.data.year|bibtex }}</span>
+        </div>
+    </div>
+
+    <div ng-if='document.type!="bibtex" && document.data.title'>
         <div class='caption' markdown='document.data.title'></div>
         <div ng-if='document.data.reference' class='caption reference' markdown='document.data.reference'></div>
         <div ng-if='document.data.copyright' class='copyright' markdown='document.data.copyright'></div>
         <div ng-if='document.data.author_name' class='copyright'>
-          <a ng-href='{{document.data.author_url}}' target='_blank' markdown='document.data.author_name'></a>
+            <a ng-href='{{ document.data.author_url }}' target='_blank' markdown='document.data.author_name'></a>
         </div>
-      </div>
-
     </div>
+
+</div>

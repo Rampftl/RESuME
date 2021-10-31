@@ -11,20 +11,20 @@
 
     <a ng-if='document.type=="link"' target='_blank' ng-href='{{document.data.url}}'><span class='title' embedit='document.data.title' language='language'></span></a>
     <a ng-if='document.type=="entity" && document.data.wiki_id' target='_blank' ng-href='https://dbpedia.org/page/{{document.data.wiki_id}}'><span class='title'><span translate='cfr'></span> dbpedia</a>
-    
+
     <div ng-if='document.data.abstract'  class='abstract'>
       <span embedit='document.data.abstract' language='language'></span>
-      
+
     </div>
     <div>
       <div ng-if='document.data.type=="link" && document.data.thumbnail_url' class='snapshot' lazy-img='{{document.data.thumbnail_url}}'></div>
-      
+
       <div ng-if='document.data.caption' class='caption' embedit='document.data.caption' language='language'></div>
       <div ng-if='!document.data.caption && document.data.description' class='caption' embedit='document.data.description' language='language'></div>
     </div>
     <div style='clear:both' ng-if='document.data.copyright' embedit='document.data.copyright' language='language' firstline='true'></div>
   </div>
-  
+
   <!-- having details -->
   <div ng-if='document.data.details.title'>
     <button class='btn btn-line' ng-if='document._type == "doc"||document._type == "voc"' ng-click='alignTo(document._index, $event)'>
@@ -35,7 +35,7 @@
     <div class='copyright' ng-if='document.data.details.copyright' embedit='document.data.details.copyright' language='language' firstline='true'></div>
   </div>
 
-   
+
   <!-- author part -->
   <div>
     <span ng-if='document.data.author_name'>
@@ -47,8 +47,8 @@
       <a ng-href='{{document.data.provider_url}}' target='_blank'>{{document.data.provider_name}}</a>
     </span>
   </div>
-  
+
   <a ng-if='user.is_staff' target='_blank' ng-href='/admin/miller/document/{{document.document_id || document.id}}/change/'>modify (admin)</a>
   <!-- <button ng-if='document.type != "link"' ng-click='fullsize(document.slug, document._type )' >preview</button> -->
-  
+
 </div>
