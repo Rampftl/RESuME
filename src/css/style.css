@@ -4840,6 +4840,7 @@ ul.article-list .remove {
   background-size: cover !important;
   */
   background-color: transparent !important;
+  padding-right: 30px;
 }
 
 .navbar {
@@ -4994,6 +4995,7 @@ a.active {
 }
 
 #footer {
+  padding-top: 90px !important;
   height: 80px !important;
 }
 
@@ -5127,4 +5129,12 @@ span .title {
 
 .story-card-inner {
   height: 250px !important;
+}
+
+td div {
+
+}
+
+.story-card {
+  min-height:  300px !important;
 }
