@@ -501,7 +501,7 @@ angular.module('miller')
       $scope.qs = $location.search();
       // addd filters
       try {
-        $scope.filters = $scope.qs.filters ? JSON.parse($scope.qs.filters) : {};
+        $scope.filters = $scope.qs.filters ? JSON.parse($scope.qs.filters) : {"tags__slug__and":[]};
         $log.log("🍔 CoreCtrl load filters: ", $scope.filters);
 
       } catch (ex) {

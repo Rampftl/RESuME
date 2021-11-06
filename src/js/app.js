@@ -829,8 +829,8 @@ angular
                     tags__category: 'writing'
                   },
                   limit: 9,
-                  orderby: d.orderby? d.orderby: d.slug === 'all' ? 'featured' : '-date,-date_last_modified',
-                  availabileOrderby: _.concat(d.slug === 'all' ? [{label:'featured', value:'featured'}] : [], [
+                  orderby: d.orderby? d.orderby: d.slug === 'all' ? '-date,-date_last_modified' : '-date,-date_last_modified',
+                  availabileOrderby: _.concat(d.slug === 'all' ? [] : [], [
                     {label:'issue', value:'data__issue,-date'},
                     {label:'newest', value:'-date,-date_last_modified'},
                     {label:'oldest', value:'date,-date_last_modified'},

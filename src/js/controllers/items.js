@@ -10,6 +10,15 @@ angular.module('miller')
     $log.log('🌻 ItemsCtrl ready, n.:', items.count, '- items:',items, 'initials:', initials);
 
     // model is used to get the correct item template
+      if(initials.orderby === "featured") {
+          initials = {
+              "orderby": "-date,-date_last_modified","limit":9,"description":"home-description",
+              "filters": "{\"tags__slug__and\":[]}", "availableOrderby":initials.availableOrderby
+          };
+      }
+      if(items === undefined || items.count === 0) {
+
+      }
     $scope.model = model.split('.').shift();
     $scope.itemTemplate = model;
     $scope.nextParams = {};
@@ -19,11 +28,15 @@ angular.module('miller')
     if (description && $state.$current.params) {
       $scope.topDescription = description.contents
     }
-
+    console.log("slug " + $state.params.slug);
+      console.log("filters ");
+      console.log(initials.filters)
     if($state.current.name == 'publications.tags')
       initials.filters['tags__slug__all'] = [$state.params.slug];
-    else if (initials.filters)
-      delete initials.filters['tags__slug__all']
+    else if (initials.filters) {
+        console.log("Delete tags_slug-all");
+        //delete initials.filters['tags__slug__all']
+    }
 
     if($state.current.name == 'search.story') {
       $scope.setCount(items.count);
@@ -114,6 +127,12 @@ angular.module('miller')
         return;
       }
       $log.log('🌻 ItemsCtrl @EVENTS.PARAMS_CHANGED - params:', newParams);
+      if(newParams.filters === undefined) {
+          newParams = {
+              "orderby": "-date,-date_last_modified",
+              "filters": "{\"tags__slug__all\":[]}"
+          };
+      }
       $scope.isLoadingNextItems = true;
 
       // clean items

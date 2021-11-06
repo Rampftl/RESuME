@@ -1,7 +1,10 @@
 <!--<div ng-if='count == 0' translate='items.empty'></div>-->
 
-<div ng-if="showDescription && topDescription" class="row" style="padding: 10px 20px 10px 60px">
+<div ng-if="showDescription && topDescription" class="row hidden-xs" style="padding: 10px 20px 10px 60px">
   <div markdownit='topDescription' watchlanguage='true' language='language'></div>
+</div>
+<div ng-if="showDescription && topDescription" class="row hidden-sm hidden-md hidden-lg" style="padding: 0">
+    <div markdownit='topDescription' watchlanguage='true' language='language'></div>
 </div>
 <div class="row">
     <div class="col-md-12 text-center">
