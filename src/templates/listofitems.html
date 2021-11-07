@@ -35,7 +35,7 @@
             <ul class='nav ' ng-repeat='route in availableRoutes'>
                 <li class="list-filter" style="margin-bottom: 5px">
                     <div class="row">
-                        <div class="col-xs-offset-2 col-xs-10" style="margin-top: 8px; padding-left: 20px">
+                        <div class="col-xs-offset-2 col-xs-10" style="font-size: 10px;margin-top: 8px; padding-left: 20px">
                             <a aria-controls="home"
                                role="tab"
                                data-toggle="tab"
@@ -57,7 +57,7 @@
                                  title="{{ getTranslation('state.' + route.state + '.' + url.slug + '.description') }}"
                                  class="sdg-logo force-pointer" style="margin-top:8px"/>
                         </div>
-                        <div class="col-xs-8 col-sm-10 col-md-9 hidden-sm text-center" style="margin-top: 8px; padding-left: 20px">
+                        <div class="col-xs-8 col-sm-10 col-md-9 hidden-sm text-left" style="margin-top: 8px; padding-left: 30px">
                             <!--<a ng-if="!url.asPicture && !url.description" aria-controls="home" role="tab" data-toggle="tab" translate="state.{{route.state}}.{{url.slug}}.label" ng-click='selectTag(url.slug)' class="force-pointer"></a>-->
 
                             <a aria-controls="home"

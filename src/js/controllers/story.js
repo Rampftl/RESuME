@@ -326,4 +326,13 @@ angular.module('miller')
         $scope.$apply();
       }
     });
+
+    $scope.findCategory = function (tags) {
+        console.log("findCategory");
+        var categories = tags.filter(t=> t.category === "writing");
+        if(categories && categories.length > 0) {
+            return categories[0].slug;
+        }
+        return "";
+    };
   });

@@ -9,7 +9,7 @@
             <div style="display: inline">
                 <!--<span ng-if='story.data.issue'>&mdash; {{story.data.issue}}</span>-->
                 <span class="date color-white" style="font-size: smaller">{{story.date|date:'dd.MM.yyyy'}}</span>
-                <img src="/static/images/categories/food.svg" style="float: right; width: 25px"/>
+                <img src="/static/images/categories/{{ findCategory(story.tags) }}.svg" style="float: right; width: 25px"/>
             </div>
             <!--<div class="author-date">
                 <div class='authors' ng-if="story.authors.length" style="display: inline">
