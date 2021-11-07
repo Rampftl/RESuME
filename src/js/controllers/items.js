@@ -9,6 +9,11 @@ angular.module('miller')
   .controller('ItemsCtrl', function ($scope, $log, $filter, $state, initials, items, model, factory, description, QueryParamsService, extendItem, EVENTS) {
     $log.log('🌻 ItemsCtrl ready, n.:', items.count, '- items:',items, 'initials:', initials);
 
+    $scope.$on(EVENTS.LANGUAGE_CHANGED,function(evt,data){
+        console.log("lang changed to " + data);
+        $scope.items = [];
+        $scope.sync(items);
+    });
     // model is used to get the correct item template
       if(initials.orderby === "featured") {
           initials = {
@@ -56,7 +61,35 @@ angular.module('miller')
         $scope.setTag(null);
     }
 
+    function tagsContainAnyLanguage(tags) {
+        var languages = ["english","french","german"];
+        for (var languagesKey in languages) {
+            //console.log("languagesKey = " + languages[languagesKey]);
+            if(tagsContainLanguage(tags,languages[languagesKey])) return true;
+        }
+        return false;
+    }
+
+    function tagsContainLanguage(tags,lang) {
+        return tags.filter(function(e) {
+            //console.log("slug vs lang " + e.slug + " " + lang);
+            return e.slug === lang
+        }).length > 0;
+    }
+
+    function getCurrentLangSlug() {
+        if($scope.language === "de_DE") {
+            return "german";
+        } else if($scope.language === "fr_FR") {
+            return "french";
+        } else if($scope.language === "en_US") {
+            return "english";
+        }
+        return undefined;
+    }
     function normalizeItems(items) {
+        console.log(items);
+        if(!items) return;
       var md = new window.markdownit({
                   breaks:       true,
                   linkify:      true,
@@ -66,9 +99,18 @@ angular.module('miller')
                   'image',
                   'heading'
                 ]);
-
-      return items
+      var langSlug = getCurrentLangSlug();
+      //console.log("langSlug = " + langSlug);
+      var filteredItems = items.filter(function (el) {
+          var anyLanguage = tagsContainAnyLanguage(el.tags);
+          //console.log("anyLanguage = " + anyLanguage);
+          return !anyLanguage || tagsContainLanguage(el.tags,langSlug);
+      });
+      //console.log("items vs filtered " + items.length + " " + filteredItems.length);
+      return filteredItems
         .map(function(d){
+            //console.log("lang = "+ $scope.language);
+            //console.log(d.tags);
           if(!d.data || !d.data.abstract)
             return d
 
@@ -97,10 +139,12 @@ angular.module('miller')
       // update next
       $scope.nextParams = QueryParamsService(res.next || '');
       $log.log('🌻 ItemsCtrl > sync() next:', $scope.nextParams);
-      // update count
-      $scope.count = res.count;
       // push items
+        //console.log("add to items");
       $scope.items = ($scope.items || []).concat(normalizeItems(res.results));
+        // update count
+        //console.log("count = " + res.count);
+        $scope.count = $scope.items.length;
       // update missing
       $scope.missing = res.count - $scope.items.length;
 
@@ -127,7 +171,7 @@ angular.module('miller')
         return;
       }
       $log.log('🌻 ItemsCtrl @EVENTS.PARAMS_CHANGED - params:', newParams);
-      if(newParams.filters === undefined) {
+      if(newParams.filters === undefined && newParams.q === undefined) {
           newParams = {
               "orderby": "-date,-date_last_modified",
               "filters": "{\"tags__slug__all\":[]}"
