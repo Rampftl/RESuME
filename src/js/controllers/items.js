@@ -6,8 +6,10 @@
  * common functions go here.
  */
 angular.module('miller')
-  .controller('ItemsCtrl', function ($scope, $log, $filter, $state, initials, items, model, factory, description, QueryParamsService, extendItem, EVENTS) {
+  .controller('ItemsCtrl', function ($scope, $log, $filter, $state, $location, initials, items, model, factory, description, QueryParamsService, extendItem, EVENTS) {
     $log.log('🌻 ItemsCtrl ready, n.:', items.count, '- items:',items, 'initials:', initials);
+
+    $scope.categoryOpen = false;
 
     $scope.$on(EVENTS.LANGUAGE_CHANGED,function(evt,data){
         console.log("lang changed to " + data);
@@ -33,6 +35,7 @@ angular.module('miller')
     if (description && $state.$current.params) {
       $scope.topDescription = description.contents
     }
+    console.log("categoryOpen " + $scope.categoryOpen);
     console.log("slug " + $state.params.slug);
       console.log("filters ");
       console.log(initials.filters)
@@ -222,5 +225,52 @@ angular.module('miller')
           }
           return "";
       };
+
+    $scope.toggleCategory = function() {
+        $scope.categoryOpen = !$scope.categoryOpen;
+      }
+
+      // $scope.selectTag = function (tag, filterType) {
+      //   console.log("select Tag " + tag);
+      //     if (filterType === undefined) {
+      //         filterType = 'tags__slug__and'
+      //     }
+      //
+      //     // if (!(filterType in $scope.filters)) {
+      //     //   $scope.filters[filterType] = [];
+      //     // }
+      //     $scope.filters[filterType] = [];
+      //     if(tag != "all") {
+      //         $scope.filters[filterType].push(tag);
+      //     }
+      //
+      //     // if ($scope.filters[filterType].indexOf(tag) !== -1) {
+      //     //   $scope.filters[filterType].splice($scope.filters[filterType].indexOf(tag), 1);
+      //     //   if ($scope.filters[filterType].length === 0) {
+      //     //     delete $scope.filters[filterType]
+      //     //   }
+      //     // } else {
+      //     //     $scope.filters[filterType] = [];
+      //     //   $scope.filters[filterType].push(tag);
+      //     // }
+      //
+      //     setNewLocation()
+      // };
+
+      var setNewLocation = function () {
+          // Avoid to keep the "featured" orderby
+          console.log("FILTERS");
+          console.log($scope.filters);
+          var params = $location.search()
+          // debugger
+          if (!('orderby' in params) || !params.orderby || params.orderby === 'featured') {
+              console.log("FLOPP");
+              params.orderby = '-date,-date_last_modified';
+              params.filters = JSON.stringify($scope.filters);
+              $location.search(params);
+          } else {
+              $location.search('filters', !angular.equals({}, $scope.filters) ? JSON.stringify($scope.filters) : null);
+          }
+      }
 
   });

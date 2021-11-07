@@ -31,6 +31,8 @@ angular.module('miller')
 
     $scope.locationPath = '';
 
+    $scope.activeTag = "";
+
     // toggle stopStateChangeStart variable thus affecting the StateChangeStart event
     $scope.toggleStopStateChangeStart = function (value) {
       $log.debug('🍔 CoreCtrl > toggleStopStateChangeStart value:', value, '- current:', $scope.stopStateChangeStart);
@@ -162,6 +164,7 @@ angular.module('miller')
       //   $scope.filters[filterType].push(tag);
       // }
 
+        $scope.activeTag = tag;
       setNewLocation()
     }
 
@@ -192,6 +195,10 @@ angular.module('miller')
       return $scope.filters.tags__slug__and && $scope.filters.tags__slug__and.findIndex(function (e) {
         return e === tag;
       }) !== -1;
+    }
+
+    $scope.getActiveTag = function () {
+        return $scope.activeTag;
     }
 
     $scope.isSDGActive = function (tag) {
