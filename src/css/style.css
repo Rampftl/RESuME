@@ -5138,3 +5138,7 @@ td div {
 .story-card {
   min-height:  300px !important;
 }
+
+.show-menu {
+  height: 500px !important;
+}

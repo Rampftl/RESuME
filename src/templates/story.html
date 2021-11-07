@@ -96,8 +96,8 @@
             <div class="col-sm-8">
                 <h1 rewording value='story.data.title' default='{{story.title}}' class="color-blue"></h1>
             </div>
-            <div class="col-sm-2 right">
-                <img src="/static/images/categories/{{ findCategory(story.tags) }}.svg" style="width: 80px"/>
+            <div class="col-sm-2 right" >
+                <img ng-if="findCategory(story.tags) != null" src="/static/images/categories/{{ findCategory(story.tags) }}.svg" style="width: 80px"/>
             </div>
 
 

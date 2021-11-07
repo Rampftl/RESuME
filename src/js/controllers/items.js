@@ -223,7 +223,7 @@ angular.module('miller')
           if(categories && categories.length > 0) {
               return categories[0].slug;
           }
-          return "";
+          return null;
       };
 
     $scope.toggleCategory = function() {
