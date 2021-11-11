@@ -30,9 +30,9 @@
         <a ui-sref="story({postId: story.slug})">
           <div class='image-wrapper cover' lazy-img='{{document|coverage}}' style="border-radius: 10px"></div>
         </a>
-        <div class="cover-checkbox" ng-show="showCoverCheckbox || cart.isItemSelected(story.id)">
+        <!--<div class="cover-checkbox" ng-show="showCoverCheckbox || cart.isItemSelected(story.id)">
           <input type="checkbox" ng-click="boxChecked(story)" ng-checked="cart.isItemSelected(story.id)"/>
-        </div>
+        </div>-->
         <!--<div class='embedded-metadata' ng-include='"templates/partials/document.metadata.embedded.html"|prefixTemplate'></div>-->
       </div>
 

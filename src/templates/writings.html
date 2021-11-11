@@ -54,25 +54,25 @@
 
     <div ng-if='user.is_staff'>
       <!-- doi -->
-      <label>
+      <!--<label>
         <span translate="field.label.doi"></span>
       </label>
       <div>
       <span>{{story.data.doi}}</span>
         <div class='btn-line-group transparent'><button class='btn-line' ng-click='openSaveDoiModal()' translate='button.createorupdate' translate-values='{create: !story.data.doi}'></button></div>
-      </div>
+      </div>-->
       <!-- citation -->
-      <label>
+      <!--<label>
         <span translate="field.label.issue"></span>
       </label>
-      <textarea class='elastic-textarea' rows="1" msd-elastic ng-model='story.data.issue' type='text' placeholder='issue n.'></textarea>
+      <textarea class='elastic-textarea' rows="1" msd-elastic ng-model='story.data.issue' type='text' placeholder='issue n.'></textarea>-->
 
 
       <!-- citation -->
-      <label>
+      <!--<label>
         <span translate="field.label.reference"></span>
       </label>
-      <textarea class='elastic-textarea' rows="1" msd-elastic ng-model='story.data.reference' type='text' placeholder='reference'></textarea>
+      <textarea class='elastic-textarea' rows="1" msd-elastic ng-model='story.data.reference' type='text' placeholder='reference'></textarea>-->
 
 
       <!-- <label translate="staff.drafts.tags.placeholder"></label>
@@ -235,6 +235,7 @@ by <a href>{{metadata.owner.username}}</a>
       <div class='contents' id='contents' markdownit='marked' watchmarkdownit='true' watchlanguage='true' language='language' listener='listener(event, data, callback)'></div>
       <div rangy container='contents' highlights='story.highlights' commented='commented(error, comment)' target='story' actor='user' onCommentsSelected='commentsSelected(uids)'></div>
     </div> -->
+      <br/><br/><br/><br/><br/><br/>
   </div>
 </div>
 

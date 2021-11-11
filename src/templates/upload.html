@@ -1,9 +1,9 @@
 <div class='container'>
-<div class='view'>
+<div class='view' style="padding-left: 50px; padding-right: 50px">
 <div class="row">
   <div class="col-lg-8">
     <div>
-      <h1 translate="upload.title" class="ng-scope">Publications</h1>
+      <h2 translate="upload.title" class="ng-scope color-blue">Publications</h2>
 
       <blockquote translate="upload.description" class="ng-scope"></blockquote>
 
@@ -15,7 +15,7 @@
 
 <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
 
-<div class='drop-box-form-wrapper'>
+<div class='drop-box-form-wrapper' style="padding-left: 100px; padding-right: 50px">
   <form name="createForm" novalidate class="simple-form">
     <label>
       <span class="number" ng-class='{"active": createForm.utitle.$valid, "error": createForm.utitle.$dirty && !createForm.utitle.$valid}'>1</span>

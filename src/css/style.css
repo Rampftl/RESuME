@@ -4995,7 +4995,7 @@ a.active {
 }
 
 #footer {
-  padding-top: 90px !important;
+  padding-top: 160px !important;
   height: 80px !important;
 }
 
@@ -5141,4 +5141,38 @@ td div {
 
 .show-menu {
   height: 500px !important;
+}
+
+.dropdown-menu > li > a {
+  color: black !important;
+}
+
+.tags-input .tags .tag-item .type {
+  color: #2d2c2c !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  color: #f26951 !important;
+  border: 2px solid #f26951 !important;
+  background-color: transparent;
+}
+
+.nav-tabs > li > a {
+  color: black !important;
+}
+
+textarea {
+  padding: 10px !important;
+}
+
+.elastic-textarea {
+  padding: 10px !important;
+}
+
+.dropdown-menu.bottom-right {
+  width: 130px !important;
+}
+
+.menu-open {
+  padding-top: 160px  !important;
 }

@@ -1,13 +1,13 @@
 <div class='container'>
-  <div class='view'>
-    <h2>{{author.fullname}}</h2>
+  <div class='view' style="padding-left: 50px; padding-right: 50px">
+    <h2 class="color-blue">{{author.fullname}}</h2>
     <div class='affiliation sans-serif' embedit='author.affiliation' language='language'></div>
 
     <div embedit='author.data.biography' markdown='true' language='language'></div>
 
     <div ui-view></div>
 
-    <div ng-if='isMe || user.is_staff' class='actions'>
+    <div ng-if='isMe || user.is_staff' class='actions' style="right: 50px">
       <div class='btn-line-group primary'>
         <button ui-sref='modifyauthor({slug: author.slug})' class='btn-line' translate="button.edit.author"></button>
       </div>
