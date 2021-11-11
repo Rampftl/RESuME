@@ -1114,7 +1114,7 @@ ul.errorlist{
 .date, .status, .ref .label, .ref > span{
   color: #9c9696;
   font-weight: bold;
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: uppercase;
   font-size: 12px;
 }
@@ -1390,7 +1390,7 @@ ul.errorlist{
 
 a.author{
   text-transform: uppercase;
-  font-family: arial;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
 }
 /*
   contents (story)
@@ -1678,7 +1678,7 @@ a.author{
   border-bottom: 2px solid #E6E5E5;
   border-left-width: 0;
   border-right-width: 0;
-  font-family: monospace;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
 }
 
 .CodeMirror-code .mod pre.CodeMirror-line > span{
@@ -1754,7 +1754,7 @@ a.author{
 }
 
 .btn-line{
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: uppercase;
   background-color: #e7e7e7;
   border: 2px solid transparent;
@@ -1953,7 +1953,7 @@ a.btn-line:hover{
 }
 
 .nav-tabs > li > a{
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   font-size: 10px;
   text-transform: uppercase;
   text-align: left;
@@ -2038,7 +2038,7 @@ a.btn-line:hover{
 .dropdown-menu{
   -webkit-box-shadow: none;
   box-shadow: none;
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
 }
 
 .dropdown-menu.bottom-right{
@@ -2082,7 +2082,7 @@ a.btn-line:hover{
   .nav-filters {
     width: 100px;
     padding-right: 20px;
-    font-family: arial;
+    font-family: 'Source Sans Pro Regular', arial, sans-serif;
 
   }
   .profile .contents ol, ul {
@@ -2111,7 +2111,7 @@ a.btn-line:hover{
   .nav-filters {
     width: 150px;
     padding-right: 20px;
-    font-family: arial;
+    font-family: 'Source Sans Pro Regular', arial, sans-serif;
   }
   .nav-filters h4{
     padding: 0 0 0 2px;
@@ -2123,7 +2123,7 @@ a.btn-line:hover{
 
 .nav-filters .ellipsis{
   font-style: italic;
-  font-family: arial, georgia, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: lowercase;
 }
 
@@ -2361,7 +2361,7 @@ a.btn-line:hover{
   right: 0;
   color: #9c9696;
   font-weight: bold;
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: uppercase;
   font-size: 10px;
   cursor: pointer;
@@ -2464,7 +2464,7 @@ a.btn-line:hover{
   bootstrap modal
 */
 h4.modal-title{
-  font-family: arial, sans-serif;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   margin-right: 50px;
   text-transform: uppercase;
   font-size: 11px;
@@ -2941,7 +2941,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
 }
 
 .bibtex{
-  font-family: monospace;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   font-size: 10px;
   line-height: 15px;
 }
@@ -3083,7 +3083,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
   font-size: 10px;
   line-height: inherit;
 
-  font-family: 'Source Sans Pro Regular';
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 20px;
@@ -3194,7 +3194,7 @@ height: 200px;width: 100%;overflow: auto;opacity: 1;border-bottom: 1px solid #db
 }
 
 .doc.oembedded .excerpt .type{
-  font-family: 'Source Sans Pro Regular',arial;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: uppercase;
   font-size: 11px;
   font-weight: bold;
@@ -3932,7 +3932,7 @@ content: "\e07a";
   reviewed
 */
 .review table .status{
-  font-family: 'Source Sans Pro Regular',arial;
+  font-family: 'Source Sans Pro Regular', arial, sans-serif;
   text-transform: uppercase;
   font-size: 0.8em;
   padding: 0 5px;
