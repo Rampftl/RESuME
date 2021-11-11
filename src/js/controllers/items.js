@@ -19,7 +19,7 @@ angular.module('miller')
     // model is used to get the correct item template
       if(initials.orderby === "featured") {
           initials = {
-              "orderby": "-date,-date_last_modified","limit":9,"description":"home-description",
+              "orderby": "-date,-date_last_modified","description":"home-description",
               "filters": "{\"tags__slug__and\":[]}", "availableOrderby":initials.availableOrderby
           };
       }
