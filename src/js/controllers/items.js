@@ -104,14 +104,14 @@ angular.module('miller')
                 ]);
       var langSlug = getCurrentLangSlug();
       //console.log("langSlug = " + langSlug);
-      var filteredItems = items.filter(function (el) {
-          var anyLanguage = tagsContainAnyLanguage(el.tags);
-          //console.log("anyLanguage = " + anyLanguage);
-          return !anyLanguage || tagsContainLanguage(el.tags,langSlug);
-      });
-      console.log("filteredItems = " + filteredItems.length);
+      // var filteredItems = items.filter(function (el) {
+      //     var anyLanguage = tagsContainAnyLanguage(el.tags);
+      //     //console.log("anyLanguage = " + anyLanguage);
+      //     return !anyLanguage || tagsContainLanguage(el.tags,langSlug);
+      // });
+      //console.log("filteredItems = " + filteredItems.length);
       //console.log("items vs filtered " + items.length + " " + filteredItems.length);
-      return filteredItems
+      return items
         .map(function(d){
             //console.log("lang = "+ $scope.language);
             //console.log(d.tags);
@@ -139,19 +139,20 @@ angular.module('miller')
 
     // update scope vars related to count, missing, and render the items
     $scope.sync = function(res){
-        console.log("items sync");
+        console.log("items sync with " + res.count);
       $scope.isLoadingNextItems = false;
       // update next
       $scope.nextParams = QueryParamsService(res.next || '');
       $log.log('🌻 ItemsCtrl > sync() next:', $scope.nextParams);
       // push items
         //console.log("add to items");
+        console.log("total = " + res.results.length);
       $scope.items = ($scope.items || []).concat(normalizeItems(res.results));
         // update count
         console.log("items count = " + $scope.items.length);
-        $scope.count = $scope.items.length;
+        $scope.count = res.count;
       // update missing
-      $scope.missing = 0;
+      $scope.missing = res.count - $scope.items.length;
 
       // TODO: Provisory fix for presentation, this need to be handled better
       $scope.showDescription = window.location.pathname === '/' && window.location.search === ''
