@@ -109,6 +109,7 @@ angular.module('miller')
           //console.log("anyLanguage = " + anyLanguage);
           return !anyLanguage || tagsContainLanguage(el.tags,langSlug);
       });
+      console.log("filteredItems = " + filteredItems.length);
       //console.log("items vs filtered " + items.length + " " + filteredItems.length);
       return filteredItems
         .map(function(d){
@@ -127,9 +128,9 @@ angular.module('miller')
           }
 
           // console.log(d)
-          if(!d.data.abstract[$scope.language]){
-            return d;
-          }
+          // if(!d.data.abstract[$scope.language]){
+          //   return d;
+          // }
 
           d.excerpt = md.renderInline($filter('tokenize')( d.data.abstract[$scope.language], 32));
           return d;
@@ -138,6 +139,7 @@ angular.module('miller')
 
     // update scope vars related to count, missing, and render the items
     $scope.sync = function(res){
+        console.log("items sync");
       $scope.isLoadingNextItems = false;
       // update next
       $scope.nextParams = QueryParamsService(res.next || '');
@@ -146,10 +148,10 @@ angular.module('miller')
         //console.log("add to items");
       $scope.items = ($scope.items || []).concat(normalizeItems(res.results));
         // update count
-        //console.log("count = " + res.count);
+        console.log("items count = " + $scope.items.length);
         $scope.count = $scope.items.length;
       // update missing
-      $scope.missing = res.count - $scope.items.length;
+      $scope.missing = 0;
 
       // TODO: Provisory fix for presentation, this need to be handled better
       $scope.showDescription = window.location.pathname === '/' && window.location.search === ''

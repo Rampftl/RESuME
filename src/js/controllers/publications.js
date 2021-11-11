@@ -50,6 +50,7 @@ angular.module('miller')
     $scope.hallOfFame = {};
 
     $scope.sync = function(){
+        console.log("publications sync")
       // transform filterrs from initials (they are for publication story, not for story.authors)
       var initials = $state.current.resolve.initials(),
           params = {
