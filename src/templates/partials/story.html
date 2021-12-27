@@ -8,7 +8,7 @@
             </h3>
             <div style="display: inline">
                 <!--<span ng-if='story.data.issue'>&mdash; {{story.data.issue}}</span>-->
-                <span class="date color-white" style="font-size: smaller">{{story.date|date:'dd.MM.yyyy'}}</span>
+                <!--<span class="date color-white" style="font-size: smaller">{{story.date|date:'dd.MM.yyyy'}}</span>-->
                 <img ng-if="findCategory(story.tags) != null" src="/static/images/categories/{{ findCategory(story.tags) }}.svg" style="float: right; width: 25px"/>
             </div>
             <!--<div class="author-date">
@@ -40,9 +40,9 @@
         <a ui-sref="story({postId: story.slug})">
           <div class="story-missing-cover"></div>
         </a>
-        <div class="cover-checkbox" ng-show="showCoverCheckbox || cart.isItemSelected(story.id)">
+        <!--<div class="cover-checkbox" ng-show="showCoverCheckbox || cart.isItemSelected(story.id)">
           <input type="checkbox" ng-click="boxChecked(story)" ng-checked="cart.isItemSelected(story.id)"/>
-        </div>
+        </div>-->
       </div>
 
 

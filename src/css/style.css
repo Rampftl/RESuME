@@ -5176,3 +5176,7 @@ textarea {
 .menu-open {
   padding-top: 160px  !important;
 }
+
+.color-black {
+  color: black !important;
+}
