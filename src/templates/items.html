@@ -74,8 +74,8 @@
   <div ng-if='itemTemplate == "story.pending"' ng-repeat='story in items' ng-include='"templates/partials/story.pending.html"|prefixTemplate'></div>
 </div>
 
-<div style='text-align: center;  margin-top: 30px;'>
-  <div ng-if='items.length > 0 && items.length < count' class="btn-line-group primary">
+<div style='text-align: center;  margin-top: 25px;'>
+  <div ng-if='items.length > 0 && items.length < count' class="btn-line-group primary" style="margin-bottom: 10px">
     <button class='btn-line' ng-click='more()'>
       <span ng-if='!isLoadingNextItems'>
         <span translate='button.more'></span>
