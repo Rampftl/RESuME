@@ -4970,6 +4970,10 @@ a.active {
   color: #f26951 !important;
 }
 
+.color-orange-light {
+  color: #f27a61 !important;
+}
+
 .color-lblue {
   color: #73bbc9 !important;
 }
@@ -4986,6 +4990,9 @@ a.active {
   background-color: #f26951 !important;
 }
 
+.bg-color-orange-light {
+  background-color: #f27a61 !important;
+}
 .bg-color-lblue {
   background-color: #73bbc9 !important;
 }
